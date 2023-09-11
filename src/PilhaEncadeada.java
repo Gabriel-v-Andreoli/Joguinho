@@ -24,6 +24,15 @@ public class PilhaEncadeada {
         ultimo = no;
     }
 
+    public void insertNode(Node node){
+        if (lista == null){
+            lista = node;
+        } else {
+            node.setProx(ultimo);
+        }
+        ultimo = node;
+    }
+
     public void remove(){
         if (lista != null){
             System.out.printf("O valor removido foi %d%n", ultimo.getInfo());

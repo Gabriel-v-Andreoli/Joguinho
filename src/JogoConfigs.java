@@ -44,31 +44,32 @@ public class JogoConfigs {
    }
 
    public boolean verificaDecrescente(){
+       PilhaEncadeada temporaria = new PilhaEncadeada();
         if ( p2.getUltimo() == null && p3.getUltimo() == null){
-            Node ultimo = p1.getUltimo();
-            while (ultimo.getProx() != null){
-                if (ultimo.getInfo() <= ultimo.getProx().getInfo()){
-                    ultimo = ultimo.getProx();
+            temporaria = p1;
+            for (int i = 0; i < temporaria.getLenth(); i++) {
+                if (temporaria.getUltimo().getInfo() <= temporaria.getUltimo().getProx().getInfo()){
+                    temporaria.remove();
                 } else {
                     return false;
                 }
             }
             return true;
         } else if (p1.getUltimo() == null && p3.getUltimo() == null) {
-            Node ultimo = p2.getUltimo();
-            while (ultimo.getProx() != null){
-                if (ultimo.getInfo() <= ultimo.getProx().getInfo()){
-                    ultimo = ultimo.getProx();
+            temporaria = p2;
+            for (int i = 0; i < temporaria.getLenth(); i++) {
+                if (temporaria.getUltimo().getInfo() <= temporaria.getUltimo().getProx().getInfo()){
+                    temporaria.remove();
                 } else {
                     return false;
                 }
             }
             return true;
         } else if (p1.getUltimo() == null && p2.getUltimo() == null){
-            Node ultimo = p3.getUltimo();
-            while (ultimo.getProx() != null){
-                if (ultimo.getInfo() <= ultimo.getProx().getInfo()){
-                    ultimo = ultimo.getProx();
+            temporaria = p3;
+            for (int i = 0; i < temporaria.getLenth(); i++) {
+                if (temporaria.getUltimo().getInfo() <= temporaria.getUltimo().getProx().getInfo()){
+                    temporaria.remove();
                 } else {
                     return false;
                 }
@@ -80,31 +81,32 @@ public class JogoConfigs {
    }
 
    public boolean verificacaoCrescente(){
+       PilhaEncadeada temporaria = new PilhaEncadeada();
        if ( p2.getUltimo() == null && p3.getUltimo() == null){
-           Node ultimo = p1.getUltimo();
-           while (ultimo.getProx() != null){
-               if (ultimo.getInfo() >= ultimo.getProx().getInfo()){
-                   ultimo = ultimo.getProx();
+           temporaria = p1;
+           for (int i = 0; i < temporaria.getLenth(); i++) {
+               if (temporaria.getUltimo().getInfo() >= temporaria.getUltimo().getProx().getInfo()){
+                   temporaria.remove();
                } else {
                    return false;
                }
            }
            return true;
        } else if (p1.getUltimo() == null && p3.getUltimo() == null) {
-           Node ultimo = p2.getUltimo();
-           while (ultimo.getProx() != null){
-               if (ultimo.getInfo() >= ultimo.getProx().getInfo()){
-                   ultimo = ultimo.getProx();
+           temporaria = p2;
+           for (int i = 0; i < temporaria.getLenth(); i++) {
+               if (temporaria.getUltimo().getInfo() >= temporaria.getUltimo().getProx().getInfo()){
+                   temporaria.remove();
                } else {
                    return false;
                }
            }
            return true;
        } else if (p1.getUltimo() == null && p2.getUltimo() == null){
-           Node ultimo = p3.getUltimo();
-           while (ultimo.getProx() != null){
-               if (ultimo.getInfo() >= ultimo.getProx().getInfo()){
-                   ultimo = ultimo.getProx();
+           temporaria = p3;
+           for (int i = 0; i < temporaria.getLenth(); i++) {
+               if (temporaria.getUltimo().getInfo() >= temporaria.getUltimo().getProx().getInfo()){
+                   temporaria.remove();
                } else {
                    return false;
                }

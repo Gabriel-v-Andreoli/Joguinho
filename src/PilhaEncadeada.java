@@ -3,10 +3,11 @@ import java.util.Scanner;
 public class PilhaEncadeada {
     private Node lista;
     private Node ultimo;
-
+    private Integer lenth;
     public PilhaEncadeada() {
         lista = null;
         ultimo = null;
+        lenth = 0;
     }
 
     public Node getUltimo() {
@@ -22,15 +23,7 @@ public class PilhaEncadeada {
             no.setProx(ultimo);
         }
         ultimo = no;
-    }
-
-    public void insertNode(Node node){
-        if (lista == null){
-            lista = node;
-        } else {
-            node.setProx(ultimo);
-        }
-        ultimo = node;
+        lenth++;
     }
 
     public void remove(){
@@ -41,6 +34,7 @@ public class PilhaEncadeada {
                 ultimo = null;
                 lista = null;
             }
+            lenth--;
         }
     }
 
@@ -50,5 +44,9 @@ public class PilhaEncadeada {
             System.out.println(atual.getInfo());
             atual = atual.getProx();
         }
+    }
+
+    public Integer getLenth(){
+        return lenth;
     }
 }

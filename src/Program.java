@@ -41,7 +41,6 @@ public class Program {
                     contador++;
                     if (jogo.verificaDecrescente()){
                         System.out.println();
-                        jogo.printBoard();
                         System.out.println("Parabens!!!!!");
                         System.out.printf("Voce ganhou com %d movimentos!", contador);
                         break;
@@ -75,7 +74,6 @@ public class Program {
                     contador++;
                     if (jogo.verificacaoCrescente()) {
                         System.out.println();
-                        jogo.printBoard();
                         System.out.println("Parabens!!!!!");
                         System.out.printf("Voce ganhou com %d movimentos!", contador);
                         break;

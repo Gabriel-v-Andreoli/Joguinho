@@ -79,6 +79,41 @@ public class JogoConfigs {
         }
    }
 
+   public boolean verificacaoCrescente(){
+       if ( p2.getUltimo() == null && p3.getUltimo() == null){
+           Node ultimo = p1.getUltimo();
+           while (ultimo.getProx() != null){
+               if (ultimo.getInfo() >= ultimo.getProx().getInfo()){
+                   ultimo = ultimo.getProx();
+               } else {
+                   return false;
+               }
+           }
+           return true;
+       } else if (p1.getUltimo() == null && p3.getUltimo() == null) {
+           Node ultimo = p2.getUltimo();
+           while (ultimo.getProx() != null){
+               if (ultimo.getInfo() >= ultimo.getProx().getInfo()){
+                   ultimo = ultimo.getProx();
+               } else {
+                   return false;
+               }
+           }
+           return true;
+       } else if (p1.getUltimo() == null && p2.getUltimo() == null){
+           Node ultimo = p3.getUltimo();
+           while (ultimo.getProx() != null){
+               if (ultimo.getInfo() >= ultimo.getProx().getInfo()){
+                   ultimo = ultimo.getProx();
+               } else {
+                   return false;
+               }
+           }
+           return true;
+       } else {
+           return false;
+       }
+   }
 
    public void printBoard(){
        Node a1 = p1.getUltimo();

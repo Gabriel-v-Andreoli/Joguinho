@@ -25,14 +25,14 @@ public class Program {
                 jogo.printBoard();
                 System.out.printf("Jogadas usadas: %d%n", contador);
                 System.out.println("Opções: ");
-                System.out.println("1- sair");
-                System.out.println("2- Mover");
-                System.out.println("3- resolução automatica");
+                System.out.println("0- sair");
+                System.out.println("1- Mover");
+                System.out.println("2- resolução automatica");
                 opcao = sc.nextInt();
-                if (opcao == 1){
+                if (opcao == 0){
                     System.out.printf("Quantidade de jogadas usadas: %d", contador);
                     break;
-                } else if (opcao == 2) {
+                } else if (opcao == 1) {
                     System.out.print("Pilha de Origem (1/ 2/ 3): ");
                     o = sc.nextInt();
                     System.out.print("Pilha de Destino (1/ 2/ 3): ");
@@ -49,7 +49,17 @@ public class Program {
                         break;
                     }
                     System.out.println();
-                } else {
+                } else if (opcao == 2){
+                    while (true){
+                        jogo.printBoard();
+                        jogo.resolucaoAutomaticaDecrescente();
+                        if (jogo.verificaDecrescente()){
+                            System.out.println();
+                            jogo.printBoard();
+                            System.out.printf("O computador terminou em %d movimentos%n", jogo.getMovimentos());
+                            break;
+                        }
+                    }
                     break;
                 }
             }
@@ -61,14 +71,14 @@ public class Program {
                 jogo.printBoard();
                 System.out.printf("Jogadas usadas: %d%n", contador);
                 System.out.println("Opções: ");
-                System.out.println("1- sair");
-                System.out.println("2- Mover");
-                System.out.println("3- resolução automatica");
+                System.out.println("0- sair");
+                System.out.println("1- Mover");
+                System.out.println("2- resolução automatica");
                 opcao = sc.nextInt();
-                if (opcao == 1) {
+                if (opcao == 0) {
                     System.out.printf("Quantidade de jogadas usadas: %d", contador);
                     break;
-                } else if (opcao == 2) {
+                } else if (opcao == 1) {
                     System.out.print("Pilha de Origem (1/ 2/ 3): ");
                     o = sc.nextInt();
                     System.out.print("Pilha de Destino (1/ 2/ 3): ");

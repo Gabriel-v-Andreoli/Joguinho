@@ -12,6 +12,10 @@ public class PilhaEncadeada {
         return ultimo;
     }
 
+    public Node getLista() {
+        return lista;
+    }
+
     public void insert(int num){
         Node no = new Node();
         no.setInfo(num);

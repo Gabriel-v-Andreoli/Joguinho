@@ -1,7 +1,12 @@
+import java.util.Objects;
+
 public class JogoConfigs {
    private PilhaEncadeada p1;
    private PilhaEncadeada p2;
    private PilhaEncadeada p3;
+   private Integer movimentos = 0;
+   private Integer maiorP1;
+   private Integer maiorP3;
 
    public JogoConfigs(){
        p1 = new PilhaEncadeada();
@@ -154,4 +159,68 @@ public class JogoConfigs {
        }
        System.out.println();
    }
+
+   public int achaMaior(PilhaEncadeada origem){
+       int maior = -1;
+       Node no = origem.getUltimo();
+       for (int i = 0; i < origem.getLenth(); i++) {
+           if (maior == -1){
+               maior = no.getInfo();
+               no = no.getProx();
+           } else if (maior < no.getInfo()){
+               maior = no.getInfo();
+               no = no.getProx();
+           } else {
+               no = no.getProx();
+           }
+       }
+       return maior;
+   }
+
+
+   public void resolucaoAutomaticaDecrescente(){
+       if (p1.getUltimo() != null){
+           maiorP1 = achaMaior(p1);
+           if (p2.getUltimo() == null && p3.getUltimo() == null){
+               if (Objects.equals(p1.getUltimo().getInfo(), maiorP1)){
+                   move(p1, p2);
+               } else {
+                   move(p1, p3);
+               }
+           } else if (p3.getUltimo() != null) {
+               maiorP3 = achaMaior(p3);
+               if (maiorP1 > maiorP3){
+                   if (Objects.equals(p1.getUltimo().getInfo(), maiorP1)){
+                       move(p1, p2);
+                   } else {
+                       move(p1, p3);
+                   }
+               } else {
+                   if (Objects.equals(p3.getUltimo().getInfo(), maiorP3)){
+                       move(p3,p2);
+                   } else {
+                       move(p3,p1);
+                   }
+               }
+           } else if (p3.getUltimo() == null && p2.getUltimo() != null) {
+               if (Objects.equals(p1.getUltimo().getInfo(), maiorP1)) {
+                   move(p1, p2);
+               } else {
+                   move(p1, p3);
+               }
+           }
+       } else if (p1.getUltimo() == null) {
+           maiorP3 = achaMaior(p3);
+           if (Objects.equals(p3.getUltimo().getInfo(), maiorP3)){
+               move(p3,p2);
+           } else {
+               move(p3,p1);
+           }
+       }
+       movimentos++;
+   }
+
+    public int getMovimentos() {
+        return movimentos;
+    }
 }

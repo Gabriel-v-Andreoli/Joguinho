@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class PilhaEncadeada {
     private Node lista;
     private Node ultimo;

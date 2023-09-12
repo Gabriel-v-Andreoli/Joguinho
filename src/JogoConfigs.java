@@ -18,7 +18,7 @@ public class JogoConfigs {
            p1.insert(rand);
        }
    }
-   public PilhaEncadeada pegaOrigem(int n){
+   public PilhaEncadeada pegaPilha(int n){
        if (n == 1){
            return p1;
        } else if (n == 2){
@@ -28,14 +28,12 @@ public class JogoConfigs {
        }
    }
 
-    public PilhaEncadeada pegaDestino(int n){
-        if (n == 1){
-            return p1;
-        } else if (n == 2){
-            return  p2;
-        } else {
-            return p3;
-        }
+    public boolean podeMover(PilhaEncadeada origem, PilhaEncadeada destino){
+       if (origem.getUltimo() != null){
+           return true;
+       } else {
+           return false;
+       }
     }
    public void move(PilhaEncadeada origem, PilhaEncadeada destino){
        Node temporario = origem.getUltimo();
@@ -44,32 +42,32 @@ public class JogoConfigs {
    }
 
    public boolean verificaDecrescente(){
-       PilhaEncadeada temporaria = new PilhaEncadeada();
+        Node no = new Node();
         if ( p2.getUltimo() == null && p3.getUltimo() == null){
-            temporaria = p1;
-            for (int i = 0; i < temporaria.getLenth(); i++) {
-                if (temporaria.getUltimo().getInfo() <= temporaria.getUltimo().getProx().getInfo()){
-                    temporaria.remove();
+            no = p1.getUltimo();
+            for (int i = 1; i < p1.getLenth(); i++) {
+                if (no.getInfo() <= no.getProx().getInfo()){
+                    no = no.getProx();
                 } else {
                     return false;
                 }
             }
             return true;
         } else if (p1.getUltimo() == null && p3.getUltimo() == null) {
-            temporaria = p2;
-            for (int i = 0; i < temporaria.getLenth(); i++) {
-                if (temporaria.getUltimo().getInfo() <= temporaria.getUltimo().getProx().getInfo()){
-                    temporaria.remove();
+            no = p2.getUltimo();
+            for (int i = 1; i < p2.getLenth(); i++) {
+                if (no.getInfo() <= no.getProx().getInfo()){
+                    no = no.getProx();
                 } else {
                     return false;
                 }
             }
             return true;
         } else if (p1.getUltimo() == null && p2.getUltimo() == null){
-            temporaria = p3;
-            for (int i = 0; i < temporaria.getLenth(); i++) {
-                if (temporaria.getUltimo().getInfo() <= temporaria.getUltimo().getProx().getInfo()){
-                    temporaria.remove();
+            no = p3.getUltimo();
+            for (int i = 1; i < p3.getLenth(); i++) {
+                if (no.getInfo() <= no.getProx().getInfo()){
+                    no = no.getProx();
                 } else {
                     return false;
                 }
@@ -81,32 +79,32 @@ public class JogoConfigs {
    }
 
    public boolean verificacaoCrescente(){
-       PilhaEncadeada temporaria = new PilhaEncadeada();
+       Node no = new Node();
        if ( p2.getUltimo() == null && p3.getUltimo() == null){
-           temporaria = p1;
-           for (int i = 0; i < temporaria.getLenth(); i++) {
-               if (temporaria.getUltimo().getInfo() >= temporaria.getUltimo().getProx().getInfo()){
-                   temporaria.remove();
+           no = p1.getUltimo();
+           for (int i = 1; i < p1.getLenth(); i++) {
+               if (no.getInfo() >= no.getProx().getInfo()){
+                   no = no.getProx();
                } else {
                    return false;
                }
            }
            return true;
        } else if (p1.getUltimo() == null && p3.getUltimo() == null) {
-           temporaria = p2;
-           for (int i = 0; i < temporaria.getLenth(); i++) {
-               if (temporaria.getUltimo().getInfo() >= temporaria.getUltimo().getProx().getInfo()){
-                   temporaria.remove();
+           no = p2.getUltimo();
+           for (int i = 1; i < p2.getLenth(); i++) {
+               if (no.getInfo() >= no.getProx().getInfo()){
+                   no = no.getProx();
                } else {
                    return false;
                }
            }
            return true;
        } else if (p1.getUltimo() == null && p2.getUltimo() == null){
-           temporaria = p3;
-           for (int i = 0; i < temporaria.getLenth(); i++) {
-               if (temporaria.getUltimo().getInfo() >= temporaria.getUltimo().getProx().getInfo()){
-                   temporaria.remove();
+           no = p3.getUltimo();
+           for (int i = 1; i < p3.getLenth(); i++) {
+               if (no.getInfo() >= no.getProx().getInfo()){
+                   no = no.getProx();
                } else {
                    return false;
                }

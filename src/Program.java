@@ -37,10 +37,13 @@ public class Program {
                     o = sc.nextInt();
                     System.out.print("Pilha de Destino (1/ 2/ 3): ");
                     d = sc.nextInt();
-                    jogo.move(jogo.pegaOrigem(o), jogo.pegaDestino(d));
-                    contador++;
+                    if (jogo.podeMover(jogo.pegaPilha(o), jogo.pegaPilha(d))) {
+                        jogo.move(jogo.pegaPilha(o), jogo.pegaPilha(d));
+                        contador++;
+                    }
                     if (jogo.verificaDecrescente()){
                         System.out.println();
+                        jogo.printBoard();
                         System.out.println("Parabens!!!!!");
                         System.out.printf("Voce ganhou com %d movimentos!", contador);
                         break;
@@ -70,10 +73,13 @@ public class Program {
                     o = sc.nextInt();
                     System.out.print("Pilha de Destino (1/ 2/ 3): ");
                     d = sc.nextInt();
-                    jogo.move(jogo.pegaOrigem(o), jogo.pegaDestino(d));
-                    contador++;
+                    if (jogo.podeMover(jogo.pegaPilha(o), jogo.pegaPilha(d))) {
+                        jogo.move(jogo.pegaPilha(o), jogo.pegaPilha(d));
+                        contador++;
+                    }
                     if (jogo.verificacaoCrescente()) {
                         System.out.println();
+                        jogo.printBoard();
                         System.out.println("Parabens!!!!!");
                         System.out.printf("Voce ganhou com %d movimentos!", contador);
                         break;
@@ -87,7 +93,5 @@ public class Program {
         } else {
             System.out.println("Opção inválida");
         }
-
-
     }
 }

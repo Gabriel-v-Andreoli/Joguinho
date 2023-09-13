@@ -6,7 +6,6 @@ public class JogoConfigs {
    private PilhaEncadeada p3;
    private Integer movimentos = 0;
    private Integer maiorP1;
-   private Integer maiorP2;
    private Integer maiorP3;
 
    private Integer menorP1;
@@ -202,7 +201,7 @@ public class JogoConfigs {
        return menor;
    }
 
-   public void resolucaoAutomaticaDecrescente(){
+   public void resolucaoAutomaticaDecrescente() {
        if (p1.getUltimo() != null) {
            maiorP1 = achaMaior(p1);
            if (p2.getUltimo() == null && p3.getUltimo() == null) {
@@ -244,7 +243,7 @@ public class JogoConfigs {
        movimentos++;
    }
 
-   public void resolucaoAutomaticaCrescente(){
+    public void resolucaoAutomaticaCrescente(){
        if (p1.getUltimo() != null){
            menorP1 = achaMenor(p1);
            if (p2.getUltimo() == null && p3.getUltimo() == null){

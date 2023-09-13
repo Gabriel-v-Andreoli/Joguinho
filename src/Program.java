@@ -113,7 +113,6 @@ public class Program {
                 break;
             } else {
                 System.out.println("Opção inválida");
-                break;
             }
         }
     }

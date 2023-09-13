@@ -6,6 +6,7 @@ public class JogoConfigs {
    private PilhaEncadeada p3;
    private Integer movimentos = 0;
    private Integer maiorP1;
+   private Integer maiorP2;
    private Integer maiorP3;
 
    private Integer menorP1;
@@ -202,31 +203,31 @@ public class JogoConfigs {
    }
 
    public void resolucaoAutomaticaDecrescente(){
-       if (p1.getUltimo() != null){
+       if (p1.getUltimo() != null) {
            maiorP1 = achaMaior(p1);
-           if (p2.getUltimo() == null && p3.getUltimo() == null){
-               if (Objects.equals(p1.getUltimo().getInfo(), maiorP1)){
+           if (p2.getUltimo() == null && p3.getUltimo() == null) {
+               if (p1.getUltimo().getInfo() == maiorP1) {
                    move(p1, p2);
                } else {
                    move(p1, p3);
                }
            } else if (p3.getUltimo() != null) {
                maiorP3 = achaMaior(p3);
-               if (maiorP1 > maiorP3){
-                   if (Objects.equals(p1.getUltimo().getInfo(), maiorP1)){
+               if (maiorP1 > maiorP3) {
+                   if (p1.getUltimo().getInfo() == maiorP1) {
                        move(p1, p2);
                    } else {
                        move(p1, p3);
                    }
                } else {
-                   if (Objects.equals(p3.getUltimo().getInfo(), maiorP3)){
-                       move(p3,p2);
+                   if (p3.getUltimo().getInfo() == maiorP3) {
+                       move(p3, p2);
                    } else {
-                       move(p3,p1);
+                       move(p3, p1);
                    }
                }
            } else if (p3.getUltimo() == null && p2.getUltimo() != null) {
-               if (Objects.equals(p1.getUltimo().getInfo(), maiorP1)) {
+               if (p1.getUltimo().getInfo() == maiorP1) {
                    move(p1, p2);
                } else {
                    move(p1, p3);
@@ -234,10 +235,10 @@ public class JogoConfigs {
            }
        } else if (p1.getUltimo() == null) {
            maiorP3 = achaMaior(p3);
-           if (Objects.equals(p3.getUltimo().getInfo(), maiorP3)){
-               move(p3,p2);
+           if (p3.getUltimo().getInfo() == maiorP3) {
+               move(p3, p2);
            } else {
-               move(p3,p1);
+               move(p3, p1);
            }
        }
        movimentos++;
@@ -247,7 +248,7 @@ public class JogoConfigs {
        if (p1.getUltimo() != null){
            menorP1 = achaMenor(p1);
            if (p2.getUltimo() == null && p3.getUltimo() == null){
-               if (Objects.equals(p1.getUltimo().getInfo(), menorP1)){
+               if (p1.getUltimo().getInfo() == menorP1){
                    move(p1, p2);
                } else {
                    move(p1, p3);
@@ -255,20 +256,20 @@ public class JogoConfigs {
            }else if (p3.getUltimo() != null) {
                menorP3 = achaMenor(p3);
                if (menorP1 < menorP3) {
-                   if (Objects.equals(p1.getUltimo().getInfo(), menorP1)) {
+                   if (p1.getUltimo().getInfo() == menorP1) {
                        move(p1, p2);
                    } else {
                        move(p1, p3);
                    }
                } else {
-                   if (Objects.equals(p3.getUltimo().getInfo(), menorP3)) {
+                   if (p3.getUltimo().getInfo() == menorP3) {
                        move(p3, p2);
                    } else {
                        move(p3, p1);
                    }
                }
            } else if (p3.getUltimo() == null && p2.getUltimo() != null) {
-               if (Objects.equals(p1.getUltimo().getInfo(), menorP1)) {
+               if (p1.getUltimo().getInfo() == menorP1) {
                    move(p1, p2);
                } else {
                    move(p1, p3);
@@ -276,7 +277,7 @@ public class JogoConfigs {
            }
        }else if (p1.getUltimo() == null) {
            menorP3 = achaMenor(p3);
-           if (Objects.equals(p3.getUltimo().getInfo(), menorP3)){
+           if (p3.getUltimo().getInfo() == menorP3){
                move(p3,p2);
            } else {
                move(p3,p1);

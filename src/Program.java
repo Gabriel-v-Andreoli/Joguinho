@@ -17,8 +17,8 @@ public class Program {
 
 
         System.out.println("Deseja resolver o jogo em ordem decrescente (1) ou crescente (2) ?");
-        opcao = sc.nextInt();
         while (true) {
+            opcao = sc.nextInt();
             if (opcao == 1) {
                 System.out.println("Bom jogo");
                 System.out.println();
@@ -64,7 +64,7 @@ public class Program {
                         break;
                     }
                 }
-
+            break;
             } else if (opcao == 2) {
                 System.out.println("Bom jogo");
                 System.out.println();
@@ -110,7 +110,7 @@ public class Program {
                         break;
                     }
                 }
-
+                break;
             } else {
                 System.out.println("Opção inválida");
                 break;
